@@ -2,6 +2,7 @@
 
 import json
 import statistics
+from kafka import KafkaConsumer # added import
 
 # Configuration
 
@@ -36,7 +37,22 @@ def analyze_pattern(data):
 
 print("🧬 Anomaly Detection Agent started...")
 
+# added
+TOPIC_NAME = "dbserver1.public.transactions"
+BOOTSTRAP_SERVERS = "localhost:9092"
+GROUP_ID = "fraud-agent-1"  # change to fraud-agent-2 in agent2
+
+consumer = KafkaConsumer(
+    TOPIC_NAME,
+    bootstrap_servers=BOOTSTRAP_SERVERS,
+    group_id=GROUP_ID,
+    value_deserializer=lambda m: json.loads(m.decode('utf-8'))
+)
+
+# his code again
+
 for message in consumer: #consumer has to be implemented before!
+    print("Message received") # debug print
     payload = message.value.get('payload', {})
     data = payload.get('after')
     

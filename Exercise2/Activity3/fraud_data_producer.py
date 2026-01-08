@@ -6,7 +6,7 @@ import psycopg
 
 conn_params = {
     "host": "127.0.0.1",
-    "port": 5432,
+    "port": 5433,
     "dbname": "mydb",
     "user": "postgres",
     "password": "postgrespw",
