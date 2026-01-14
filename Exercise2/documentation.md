@@ -549,15 +549,6 @@ with the flag --from-beginning it shows it form the first insert, thereby using 
 ## Part 3
 Discuss the proposed architecture in terms of resource efficiency, operability, maintainability, deployment complexity, and overall performance and scalability. This includes discussing how well the system utilizes compute, memory, and storage resources; how easily it can be operated, monitored, and debugged in production; how maintainable and evolvable the individual components are over time; the effort required to deploy and manage the infrastructure; and the system’s ability to sustain increasing data volumes, higher ingestion rates, and a growing number of fraud detection agents without degradation of latency or reliability.
 
-Below is a **clean, well-structured answer in your writing style**, suitable for direct submission.
-It is concise, technical, and aligned with what your instructor expects.
-
----
-
-## Part 3 – Architectural Discussion
-
-The proposed architecture is based on **Change Data Capture (CDC)** using **Debezium**, **Apache Kafka**, and multiple independent **fraud consumer agents**. This design is well suited for high-volume, near real-time fraud detection scenarios.
-
 ### Resource Efficiency
 
 The architecture is resource-efficient because it avoids database polling and full table scans. Debezium reads changes directly from the PostgreSQL **Write-Ahead Log (WAL)**, which is already produced by the database for durability and replication purposes. This minimizes additional CPU and I/O load on PostgreSQL.
