@@ -250,7 +250,7 @@ See full configuration: https://spark.apache.org/docs/latest/submitting-applicat
 ### Monitoring 
 Navigate to the **Structured Streaming Tab** in the UI to monitor the performance:
 
-####  * **Input Rate vs. Process Rate:** 
+####  **Input Rate vs. Process Rate:** 
 If your input rate is consistently higher than your process rate, your application is failing to keep up with the data stream.
 
 #### The Executors Tab
